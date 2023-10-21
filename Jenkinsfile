@@ -10,7 +10,7 @@ pipeline {
         
         stage ("Executa Teste"){
             steps {
-                sh 'docker run -tdi --rm --name=teste simplepythonflask'
+                sh 'docker run -i --rm --name=teste simplepythonflask'
                 sh 'sleep 10'
 		sh 'docker exec -ti teste nosetests --with-xunit --with-coverage --cover-package=project test_users.py'
 		sh 'docker cp teste:/courseCatalog/nosetests.xml .'
