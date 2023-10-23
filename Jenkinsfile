@@ -21,14 +21,13 @@ pipeline {
         	script{
         	def sonarScannerPath = tool 'SonarScanner'
         	sh "${sonarScannerPath}/bin/sonar-scanner \
-                   -Dsonar.projectKey=courseCatalog \
-                   -Dsonar.sources=. \
-                   -Dsonar.host.url=http://sonarqube:9000 \
-                   -Dsonar.login=sqp_7006f2fa278f17c8414ab21b8030935cf055981f" 
+                	   -Dsonar.projectKey=courseCatalog \
+                  	   -Dsonar.sources=. \
+                  	   -Dsonar.host.url=http://sonarqube:9000 \
+                  	   -Dsonar.login=sqp_7006f2fa278f17c8414ab21b8030935cf055981f" 
+               	     }
+               	     }      			
                 }
-                }      
-       				
-            }
         }
     }
 post {
