@@ -15,6 +15,8 @@ pipeline {
 		sh 'docker exec -ti teste nosetests --with-xunit --with-coverage --cover-package=project test_users.py'
 		sh 'docker cp teste:/courseCatalog/nosetests.xml .'
 		junit 'nosetests.xml'
+		}
+	}
 		
 		stage('SonarQube'){
         	steps{
@@ -28,7 +30,6 @@ pipeline {
                	     }
                	     }      			
                 }
-        }
     }
 post {
         always {
