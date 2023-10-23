@@ -15,6 +15,12 @@ pipeline {
 		sh 'docker exec -ti teste nosetests --with-xunit --with-coverage --cover-package=project test_users.py'
 		sh 'docker cp teste:/courseCatalog/nosetests.xml .'
 		junit 'nosetests.xml'
+		
+		sh "sonar-scanner \
+	  		-Dsonar.projectKey=courseCatalog \
+  			-Dsonar.sources=. \
+  			-Dsonar.host.url=http://sonarqube:9000 \
+		I	-Dsonar.login=sqp=sqp_7006f2fa278f17c8414ab21b8030935cf055981f"
             }
         }
     }
